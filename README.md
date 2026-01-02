@@ -46,3 +46,4 @@ Se quiser, no próximo passo eu posso:
 - 📦 te ajudar a zipar e entregar certinho
 
 Só dizer o que você quer fechar agora 👊
+estamos juntos 
