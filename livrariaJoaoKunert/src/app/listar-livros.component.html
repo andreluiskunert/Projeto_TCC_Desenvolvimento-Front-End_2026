@@ -1,0 +1,8 @@
+<h2>Lista de Livros</h2>
+
+<ul>
+  <li *ngFor="let livro of livros">
+    {{ livro.titulo }} - {{ livro.autor }} ({{ livro.ano }})
+    <button (click)="excluir(livro.id)">Excluir</button>
+  </li>
+</ul>
