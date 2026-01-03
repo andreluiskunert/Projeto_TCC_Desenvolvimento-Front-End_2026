@@ -17,7 +17,7 @@ export class ListarLivrosComponent implements OnInit {
   constructor(private livroService: LivroService) {}
 
   ngOnInit(): void {
-    this.livroService.listar().subscribe(dados => {
+    this.livroService.listar().subscribe((dados: Livro[]) => {
       this.livros = dados;
     });
   }
