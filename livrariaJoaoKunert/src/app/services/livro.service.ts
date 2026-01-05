@@ -1,5 +1,6 @@
-// src/app/services/livro.service.ts
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Livro } from '../models/livro.model';
 
 @Injectable({
@@ -7,19 +8,19 @@ import { Livro } from '../models/livro.model';
 })
 export class LivroService {
 
-  private livros: Livro[] = [];
-  private contadorId = 1;
+  private apiUrl = 'http://localhost:3000/livros';
 
-  listar() {
-    return this.livros;
+  constructor(private http: HttpClient) {}
+
+  cadastrar(livro: Livro): Observable<Livro> {
+    return this.http.post<Livro>(this.apiUrl, livro);
   }
 
-  adicionar(livro: Livro) {
-    livro.id = this.contadorId++;
-    this.livros.push(livro);
+  listar(): Observable<Livro[]> {
+    return this.http.get<Livro[]>(this.apiUrl);
   }
 
-  excluir(id: number) {
-    this.livros = this.livros.filter(l => l.id !== id);
+  excluir(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
