@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LivroService } from '../../services/livro';
-import { Livro } from '../../models/livro.model';
+import { LivroService } from '../services/livro.service';
+import { Livro } from '../models/livro.model';
+
 
 @Component({
   selector: 'app-cadastro-livro',

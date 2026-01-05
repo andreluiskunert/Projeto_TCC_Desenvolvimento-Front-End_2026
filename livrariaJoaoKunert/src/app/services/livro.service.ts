@@ -1,3 +1,4 @@
+// src/app/services/livro.service.ts
 import { Injectable } from '@angular/core';
 import { Livro } from '../models/livro.model';
 
@@ -9,16 +10,16 @@ export class LivroService {
   private livros: Livro[] = [];
   private contadorId = 1;
 
-  adicionarLivro(livro: Livro) {
+  listar() {
+    return this.livros;
+  }
+
+  adicionar(livro: Livro) {
     livro.id = this.contadorId++;
     this.livros.push(livro);
   }
 
-  listarLivros(): Livro[] {
-    return this.livros;
-  }
-
-  excluirLivro(id: number) {
+  excluir(id: number) {
     this.livros = this.livros.filter(l => l.id !== id);
   }
 }
